@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import TodoItem from './TodoItem';
-import styles from './Todo.module.css';
+import { Container, Form, Field, ButtonAdd, ButtonClear } from './styled';
 
 export default class TodoList extends Component {
   state = {
@@ -41,36 +41,32 @@ export default class TodoList extends Component {
     const { list, value } = state;
 
     return (
-      <div className={styles.container}>
+      <Container>
         <h1>Todo list</h1>
-        <form className={styles.todo} onSubmit={onSubmit}>
-          <input
-            className={styles.field}
+        <Form onSubmit={onSubmit}>
+          <Field
             type="text"
             placeholder="Type todo..."
             value={value}
             onChange={handleChange}
           />
-          <button className={styles.btn} type="submit">
-            Add
-          </button>
-        </form>
+          <ButtonAdd type="submit">Add</ButtonAdd>
+        </Form>
 
-        <ul className={styles.list}>
+        <ul>
           {list.map(({ text }) => (
             <TodoItem key={text} text={text} removeTodo={this.removeTodo} />
           ))}
         </ul>
 
-        <button
-          className={styles.clear}
+        <ButtonClear
           type="button"
           onClick={this.removeAll}
           disabled={list.length <= 0}
         >
           Clear list
-        </button>
-      </div>
+        </ButtonClear>
+      </Container>
     );
   }
 }

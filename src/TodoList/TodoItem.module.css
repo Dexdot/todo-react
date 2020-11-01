@@ -1,9 +1,0 @@
-:local(.item) {
-  display: flex;
-  align-items: center;
-  margin-bottom: 4px;
-}
-
-:local(.remove) {
-  margin-left: auto;
-}

@@ -1,19 +1,25 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styles from './TodoItem.module.css';
+import styled from 'styled-components';
+
+const ItemContainer = styled.div`
+  display: flex;
+  align-items: center;
+  margin-bottom: 4px;
+`;
+
+const ButtonRemove = styled.button`
+  margin-left: auto;
+`;
 
 const TodoItem = ({ text, removeTodo }) => {
   return (
-    <div className={styles.item}>
+    <ItemContainer>
       <p>{text}</p>
-      <button
-        className={styles.remove}
-        type="button"
-        onClick={() => removeTodo(text)}
-      >
+      <ButtonRemove type="button" onClick={() => removeTodo(text)}>
         Remove
-      </button>
-    </div>
+      </ButtonRemove>
+    </ItemContainer>
   );
 };
 
