@@ -1,0 +1,36 @@
+:local(.container) {
+  width: 480px;
+  max-width: 100%;
+  padding: 40px 24px;
+  border: 1px solid #ddd;
+}
+
+:local(.container) h1 {
+  margin-bottom: 24px;
+}
+
+:local(.todo) {
+  display: flex;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+:local(.field) {
+  flex: 1;
+  border: 1px solid #ddd;
+  padding: 8px;
+  font-size: 14px;
+}
+
+:local(.btn) {
+  margin-left: 16px;
+}
+
+:local(.clear) {
+  margin-top: 8px;
+  font-size: 12px;
+}
+
+:local(.clear):disabled {
+  opacity: 0.4;
+}

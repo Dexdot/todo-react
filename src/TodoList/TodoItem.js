@@ -1,12 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import styles from './TodoItem.module.css';
 
 const TodoItem = ({ text, removeTodo }) => {
   return (
-    <div className="todo-item">
+    <div className={styles.item}>
       <p>{text}</p>
       <button
-        className="todo-remove"
+        className={styles.remove}
         type="button"
         onClick={() => removeTodo(text)}
       >
