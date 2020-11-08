@@ -2,11 +2,26 @@ import React, { Component } from 'react';
 import TodoItem from './TodoItem';
 import { Container, Form, Field, ButtonAdd, ButtonClear } from './styled';
 
+const localStorageKey = 'list';
+
 export default class TodoList extends Component {
   state = {
     value: '',
     list: [],
   };
+
+  componentDidMount() {
+    this.setListFromLocalStorage();
+  }
+
+  componentDidUpdate(props, prevState) {
+    const { list } = this.state;
+    const isDifferent = prevState.list.length !== list.length;
+
+    if (isDifferent) {
+      window.localStorage.setItem(localStorageKey, JSON.stringify(list));
+    }
+  }
 
   handleChange = ({ target }) => {
     this.setState({ value: target.value });
@@ -34,6 +49,12 @@ export default class TodoList extends Component {
 
   removeAll = () => {
     this.setState({ list: [], value: '' });
+  };
+
+  setListFromLocalStorage = () => {
+    const listFromStorage = window.localStorage.getItem(localStorageKey);
+    const list = listFromStorage ? JSON.parse(listFromStorage) : [];
+    this.setState({ list });
   };
 
   render() {

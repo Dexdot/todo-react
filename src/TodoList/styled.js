@@ -9,6 +9,10 @@ export const Container = styled.div`
   h1 {
     margin-bottom: 24px;
   }
+
+  @media (max-width: 500px) {
+    margin: 0 8px;
+  }
 `;
 
 export const Form = styled.form`
