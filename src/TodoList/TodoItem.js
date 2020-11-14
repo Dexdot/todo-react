@@ -25,7 +25,7 @@ const TodoItem = ({ text, removeTodo }) => {
 
 TodoItem.propTypes = {
   text: PropTypes.string.isRequired,
-  removeTodo: PropTypes.func.isRequired,
+  removeTodo: PropTypes.func.isRequired
 };
 
 export default TodoItem;

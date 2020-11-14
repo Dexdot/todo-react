@@ -7,7 +7,7 @@ const localStorageKey = 'list';
 export default class TodoList extends Component {
   state = {
     value: '',
-    list: [],
+    list: []
   };
 
   componentDidMount() {
@@ -24,7 +24,7 @@ export default class TodoList extends Component {
   }
 
   handleChange = ({ target }) => {
-    this.setState({ value: target.value });
+    this.setState(() => ({ value: target.value }));
   };
 
   onSubmit = (e) => {
@@ -42,9 +42,9 @@ export default class TodoList extends Component {
   };
 
   removeTodo = (textToRemove) => {
-    const { list } = this.state;
-    const newList = list.filter(({ text }) => text !== textToRemove);
-    this.setState({ list: newList });
+    this.setState(({ list }) => ({
+      list: list.filter(({ text }) => text !== textToRemove)
+    }));
   };
 
   removeAll = () => {
